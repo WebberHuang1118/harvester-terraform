@@ -2,7 +2,7 @@
 variable "harvester_kubeconfig_path" {
   description = "Harvester cluster Kubeconfig file name with full path"
   type        = string
-  default = "/home/johndoe/harvester/harvester-cluster.yaml"
+  default = "/home/webber/.kube/config"
 }
 
 variable "vm_data" {
@@ -59,7 +59,7 @@ variable "vm_network" {
   })
   default = {
     #Remember, I'm using a value here because we already had a vlan I wanted to use. If not you'd have to create one
-    vlanid = "vlan-65"
+    vlanid = "mgmt-vlan"
     namespace = "default"
   }
 }
@@ -76,12 +76,12 @@ variable "os_image" {
     tags = map(string)
   })  
   default = {
-    name = "opensuse-15-sp4-cloudinit"
+    name = "ubuntu-bionic-cloudinit"
     namespace = "default"
-    display_name = "openSUSE Leap 15.4"
+    display_name = "Ubuntu Bionic"
     description = ""
     source_type = "download"
-    url = "https://download.opensuse.org/repositories/Cloud:/Images:/Leap_15.4/images/openSUSE-Leap-15.4.x86_64-NoCloud.qcow2"
+    url = "https://cloud-images.ubuntu.com/bionic/20230607/bionic-server-cloudimg-amd64.img"
     tags = {"format"= "qcow2","qemu_gest_agent_enabled"="true"}
   }   
 }
