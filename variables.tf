@@ -76,7 +76,7 @@ variable "os_image" {
     tags = map(string)
   })  
   default = {
-    name = "ubuntu-bionic-cloudinit"
+    name = "ubuntu-bionic-123456789012345678901234567890123456789012345678901234567890"
     namespace = "default"
     display_name = "Ubuntu Bionic"
     description = ""
