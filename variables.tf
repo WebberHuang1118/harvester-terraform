@@ -64,7 +64,7 @@ variable "vm_network" {
   }
 }
 
-variable "os_image" {
+variable "os_image1" {
   description = "OS image for virtual machines"
   type = object({
     name = string
@@ -76,12 +76,34 @@ variable "os_image" {
     tags = map(string)
   })  
   default = {
-    name = "ubuntu-bionic-123456789012345678901234567890123456789012345678901234567890"
-    namespace = "default"
-    display_name = "Ubuntu Bionic"
+    name = "ubuntu"
+    namespace = "harvester-public"
+    display_name = "ubuntu1"
     description = ""
     source_type = "download"
     url = "https://cloud-images.ubuntu.com/bionic/20230607/bionic-server-cloudimg-amd64.img"
     tags = {"format"= "qcow2","qemu_gest_agent_enabled"="true"}
-  }   
+  }
+}
+
+variable "os_image2" {
+  description = "OS image for virtual machines"
+  type = object({
+    name = string
+    namespace = string
+    display_name = string
+    description = string
+    source_type = string
+    url = string
+    tags = map(string)
+  })
+  default = {
+    name = "public-ubuntu"
+    namespace = "harvester"
+    display_name = "ubuntu2"
+    description = ""
+    source_type = "download"
+    url = "https://cloud-images.ubuntu.com/bionic/20230607/bionic-server-cloudimg-amd64.img"
+    tags = {"format"= "qcow2","qemu_gest_agent_enabled"="true"}
+  }
 }
